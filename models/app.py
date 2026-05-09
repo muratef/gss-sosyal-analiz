@@ -35,16 +35,12 @@ marital_options = [
 selected_marital = st.sidebar.selectbox("Medeni Durum", options=marital_options)
 marital = int(selected_marital.split(" ")[0])
 # ---------------------------
+# --- 4 ANA BÖLGE SİSTEMİ ---
 region_options = [
-    "1 (New England)", 
-    "2 (Middle Atlantic)", 
-    "3 (East North Central)",
-    "4 (West North Central)", 
-    "5 (South Atlantic)", 
-    "6 (East South Central)",
-    "7 (West South Central)", 
-    "8 (Mountain)", 
-    "9 (Pacific)"
+    "1 (Northeast - Kuzeydoğu)", 
+    "2 (Midwest - Orta Batı)", 
+    "3 (South - Güney)", 
+    "4 (West - Batı)"
 ]
 
 selected_region = st.sidebar.selectbox("Bölge", options=region_options)
