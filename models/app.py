@@ -23,8 +23,33 @@ educ = st.sidebar.number_input("Eğitim Yılı", 0, 20, 12)
 prestg10 = st.sidebar.slider("Mesleki Prestij", 10, 80, 40)
 health = st.sidebar.selectbox("Sağlık (1:Mükemmel - 4:Kötü)", [1, 2, 3, 4])
 sex = st.sidebar.selectbox("Cinsiyet (1:E, 2:K)", [1, 2])
-marital = st.sidebar.selectbox("Medeni Durum (1-5)", [1, 2, 3, 4, 5])
-region = st.sidebar.selectbox("Bölge (1-9)", list(range(1, 10)))
+# --- MEDENİ DURUM SEÇİMİ ---
+marital_options = [
+    "1 (Evli)", 
+    "2 (Dul)", 
+    "3 (Boşanmış)", 
+    "4 (Ayrı Yaşıyor)", 
+    "5 (Hiç Evlenmemiş)"
+]
+
+selected_marital = st.sidebar.selectbox("Medeni Durum", options=marital_options)
+marital = int(selected_marital.split(" ")[0])
+# ---------------------------
+region_options = [
+    "1 (New England)", 
+    "2 (Middle Atlantic)", 
+    "3 (East North Central)",
+    "4 (West North Central)", 
+    "5 (South Atlantic)", 
+    "6 (East South Central)",
+    "7 (West South Central)", 
+    "8 (Mountain)", 
+    "9 (Pacific)"
+]
+
+selected_region = st.sidebar.selectbox("Bölge", options=region_options)
+region = int(selected_region.split(" ")[0])
+# ------------------------------
 
 # 4. Tahmin Butonu
 if st.button("Kişiyi Analiz Et"):
@@ -55,7 +80,7 @@ if st.button("Kişiyi Analiz Et"):
     prob = model.predict_proba(user_data)[:, 1][0]
     
     st.write("---")
-    st.subheader("📊 Analiz Sonucu")
+    st.subheader("📊 Analiz Sonucu : Kişinin Maddi Desteğe İhtiyacı var mı ?") 
 
     # Rakamı gizleyip 'Durum' seviyesine çeviriyoruz
     if prob >= 0.5:
