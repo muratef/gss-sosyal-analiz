@@ -4,9 +4,9 @@ import pandas as pd
 import numpy as np
 
 # 1. Dosyaları yükle
-model = joblib.load('best_rf_model.pkl')
-imputer_num = joblib.load('imputer_num.pkl')
-imputer_cat = joblib.load('imputer_cat.pkl')
+model = joblib.load('../models/best_rf_model.pkl')
+imputer_num = joblib.load('../models/imputer_num.pkl')
+imputer_cat = joblib.load('../models/imputer_cat.pkl')
 
 # 2. Modelin beklediği tam liste ve sıra (Kopyaladığın liste)
 all_features = ['year', 'income', 'educ', 'health', 'happy', 'prestg10', 
