@@ -81,13 +81,42 @@ if st.button("Kişiyi Analiz Et"):
     # Rakamı gizleyip 'Durum' seviyesine çeviriyoruz
     if prob >= 0.5:
         st.error("🔴 DURUM: KRİTİK ÖNCELİKLİ")
-        st.info("Sosyal yardım kriterlerinin tamamını karşılıyor. Acil inceleme önerilir.")
+        st.info("Sosyal yardım kriterlerini en üst düzeyde karşılayan, acil müdahale gerektiren grup.")
+        st.markdown("---")
+        st.caption("""
+        **Metodolojik Not:** Bu sınıflandırma, sosyal adaleti sağlamak ve ihtiyaç sahiplerini gözden kaçırmamak adına 
+        düşük olasılık eşikleriyle optimize edilmiştir. 
+        'İnceleme Gerekebilir' ve üzerindeki her seviye, model tarafından farklı düzeylerde ihtiyaç sinyali 
+        saptanan kişileri ifade eder.
+        """)
     elif prob >= 0.3:
         st.warning("🟡 DURUM: YÜKSEK ÖNCELİKLİ")
-        st.info("Sosyal yardım için güçlü göstergeler mevcut. Programa dahil edilmeye aday.")
+        st.info("İhtiyaç göstergeleri güçlü olan, destek programına dahil edilmeye en yakın adaylar.")
+        st.markdown("---")
+        st.caption("""
+        **Metodolojik Not:** Bu sınıflandırma, sosyal adaleti sağlamak ve ihtiyaç sahiplerini gözden kaçırmamak adına 
+        düşük olasılık eşikleriyle optimize edilmiştir. 
+        'İnceleme Gerekebilir' ve üzerindeki her seviye, model tarafından farklı düzeylerde ihtiyaç sinyali 
+        saptanan kişileri ifade eder.
+        """)
     elif prob >= 0.15:
         st.info("🔵 DURUM: İNCELEME GEREKEBİLİR")
-        st.info("Sınırda bir profil. Ek belgelerle desteklenmesi önerilir.")
+        st.info("Modelin hassas tarama eşiğinde yakaladığı, potansiyel ihtiyaç sahibi olabilecek ancak ek belgelerle doğrulanması gereken (gri alan) profilleri.")
+        st.markdown("---")
+        st.caption("""
+        **Metodolojik Not:** Bu sınıflandırma, sosyal adaleti sağlamak ve ihtiyaç sahiplerini gözden kaçırmamak adına 
+        düşük olasılık eşikleriyle optimize edilmiştir. 
+        'İnceleme Gerekebilir' ve üzerindeki her seviye, model tarafından farklı düzeylerde ihtiyaç sinyali 
+        saptanan kişileri ifade eder.
+        """)
     else:
         st.success("🟢 DURUM: STANDART / DÜŞÜK ÖNCELİK")
-        st.info("Mevcut kriterlere göre öncelikli grupta yer almamaktadır.")
+        st.info("Mevcut sosyo-ekonomik verilerine göre yardım önceliği bulunmayan grup.")
+
+        st.markdown("---")
+        st.caption("""
+        **Metodolojik Not:** Bu sınıflandırma, sosyal adaleti sağlamak ve ihtiyaç sahiplerini gözden kaçırmamak adına 
+        düşük olasılık eşikleriyle optimize edilmiştir. 
+        'İnceleme Gerekebilir' ve üzerindeki her seviye, model tarafından farklı düzeylerde ihtiyaç sinyali 
+        saptanan kişileri ifade eder.
+        """)
