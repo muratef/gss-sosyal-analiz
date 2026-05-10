@@ -7,13 +7,9 @@ Sınırlı kamu kaynaklarının en doğru ve ihtiyaç sahibi kişilere ulaştır
 🛠️ Teknik Özellikler
 Model: Random Forest Classifier
 
-Veri İşleme: * SMOTE ile sınıf dengesizliği (class imbalance) giderildi.
-
 IQR yöntemiyle aykırı değerler (outliers) baskılandı.
 
 Eksik veriler (NaN) istatistiksel yöntemlerle temizlendi.
-
-Adillik ve Etik: Algoritmik ayrımcılığı önlemek amacıyla "Irk (Race)" değişkeni model eğitiminden kasten çıkarılmıştır.
 
 Performans: Model başarısı yalnızca Accuracy değil, sosyal hedefler doğrultusunda PR-AUC (Precision-Recall Curve) ve Recall odaklı değerlendirilmiştir.
 
